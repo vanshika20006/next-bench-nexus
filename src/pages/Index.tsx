@@ -1,12 +1,28 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Navbar from "@/components/layout/Navbar";
+import HeroSection from "@/components/sections/HeroSection";
+import AboutSection from "@/components/sections/AboutSection";
+import TeamSection from "@/components/sections/TeamSection";
+import EventsSection from "@/components/sections/EventsSection";
+import OutreachSection from "@/components/sections/OutreachSection";
+import AgencySection from "@/components/sections/AgencySection";
+import Footer from "@/components/sections/Footer";
+import JoinModal from "@/components/sections/JoinModal";
 
 const Index = () => {
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-gradient-cosmic">
+      <Navbar onJoinClick={() => setIsJoinModalOpen(true)} />
+      <HeroSection onJoinClick={() => setIsJoinModalOpen(true)} />
+      <AboutSection />
+      <TeamSection />
+      <EventsSection />
+      <OutreachSection />
+      <AgencySection />
+      <Footer />
+      <JoinModal isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
     </div>
   );
 };
