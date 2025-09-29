@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
 
-const HeroSection = ({ onJoinClick }: { onJoinClick: () => void }) => {
+const HeroSection = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -58,7 +58,7 @@ const HeroSection = ({ onJoinClick }: { onJoinClick: () => void }) => {
             <Button
               variant="gradient"
               size="xl"
-              onClick={onJoinClick}
+              onClick={() => window.open('https://chat.whatsapp.com/LKbw3El4PS21JxnDgVHrBE', '_blank')}
               className="group"
             >
               Join the Community

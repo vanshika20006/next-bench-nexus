@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Users } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Navbar = ({ onJoinClick }: { onJoinClick: () => void }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -15,7 +15,6 @@ const Navbar = ({ onJoinClick }: { onJoinClick: () => void }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Updated navLinks with Mentorship & Campus Ambassadors
   const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
@@ -76,7 +75,7 @@ const Navbar = ({ onJoinClick }: { onJoinClick: () => void }) => {
               <Button
                 variant="gradient"
                 size="lg"
-                onClick={onJoinClick}
+                onClick={() => window.open('https://chat.whatsapp.com/LKbw3El4PS21JxnDgVHrBE', '_blank')}
                 className="hidden md:flex items-center gap-2"
               >
                 <Users className="w-4 h-4" />
@@ -118,7 +117,7 @@ const Navbar = ({ onJoinClick }: { onJoinClick: () => void }) => {
                   variant="gradient"
                   size="lg"
                   onClick={() => {
-                    onJoinClick();
+                    window.open('https://chat.whatsapp.com/LKbw3El4PS21JxnDgVHrBE', '_blank');
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full"

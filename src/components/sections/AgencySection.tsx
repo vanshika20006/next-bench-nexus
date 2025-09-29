@@ -100,7 +100,7 @@ const AgencySection = () => {
             <Button
               variant="neon"
               size="xl"
-              onClick={() => window.open("https://nextbench.agency/hire", "_blank")}
+              onClick={() => window.open("https://next-bench-3h3c.vercel.app/", "_blank")}
             >
               Hire Us Now
             </Button>
