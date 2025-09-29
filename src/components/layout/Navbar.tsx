@@ -15,11 +15,14 @@ const Navbar = ({ onJoinClick }: { onJoinClick: () => void }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Updated navLinks with Mentorship & Campus Ambassadors
   const navLinks = [
     { href: "#home", label: "Home" },
     { href: "#about", label: "About" },
     { href: "#team", label: "Team" },
     { href: "#events", label: "Events" },
+    { href: "#mentorship", label: "Mentorship" },
+    { href: "#ambassadors", label: "Campus Ambassadors" },
     { href: "#outreach", label: "Outreach" },
     { href: "#agency", label: "Agency" },
   ];
@@ -42,7 +45,9 @@ const Navbar = ({ onJoinClick }: { onJoinClick: () => void }) => {
             <div className="w-10 h-10 bg-gradient-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-xl">NB</span>
             </div>
-            <span className="text-xl font-space font-bold text-gradient">Next Bench</span>
+            <span className="text-xl font-space font-bold text-gradient">
+              Next Bench
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}

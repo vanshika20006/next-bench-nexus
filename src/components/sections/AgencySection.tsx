@@ -1,28 +1,32 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Code, Palette, Megaphone, TrendingUp, ArrowUpRight } from "lucide-react";
+import { Code, Palette, Scissors, Image as ImageIcon, ArrowUpRight } from "lucide-react";
 
 const AgencySection = () => {
   const services = [
     {
-      icon: Code,
-      title: "Web Development",
-      description: "Custom websites and web applications built with modern technologies",
-    },
-    {
       icon: Palette,
       title: "UI/UX Design",
-      description: "Beautiful, intuitive designs that enhance user experience",
+      description:
+        "Start with listening to your idea, research, wireframe, prototype, and finalize the UI/UX.",
     },
     {
-      icon: Megaphone,
-      title: "Digital Marketing",
-      description: "Strategic campaigns to grow your online presence",
+      icon: Code,
+      title: "Web Development",
+      description:
+        "Create a high-speed, modern and responsive website and web application for you.",
     },
     {
-      icon: TrendingUp,
-      title: "Growth Consulting",
-      description: "Data-driven strategies to scale your business",
+      icon: Scissors,
+      title: "Video Editing & Motion",
+      description:
+        "Professional editing, motion graphics, intros/outros, and social media videos for all platforms.",
+    },
+    {
+      icon: ImageIcon,
+      title: "Graphic Design",
+      description:
+        "Logos, flyers, visiting cards, social media designs, and more creative visuals.",
     },
   ];
 
@@ -30,8 +34,9 @@ const AgencySection = () => {
     <section id="agency" className="py-20 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-hero opacity-10" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
+        {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,6 +52,7 @@ const AgencySection = () => {
           </p>
         </motion.div>
 
+        {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, index) => (
             <motion.div
@@ -66,6 +72,7 @@ const AgencySection = () => {
           ))}
         </div>
 
+        {/* Call to Action */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -77,14 +84,14 @@ const AgencySection = () => {
             Ready to bring your ideas to life?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Our student-led agency combines fresh perspectives with cutting-edge skills 
+            Our student-led agency combines fresh perspectives with cutting-edge skills
             to deliver exceptional results at competitive rates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               variant="gradient"
               size="xl"
-              onClick={() => window.open("https://nextbench.agency", "_blank")}
+              onClick={() => window.open("https://next-bench-3h3c.vercel.app/", "_blank")}
               className="group"
             >
               Visit Our Agency

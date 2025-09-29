@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Building2, Mic, Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from '@emailjs/browser'; // Import emailjs
 
 const OutreachSection = () => {
   const { toast } = useToast();
@@ -27,31 +28,79 @@ const OutreachSection = () => {
 
   const handleCollegeSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Application Received!",
-      description: "We'll get back to you within 48 hours.",
-    });
-    setCollegeForm({
-      collegeName: "",
-      contactPerson: "",
-      email: "",
-      phone: "",
-      message: "",
+
+    // EmailJS integration for College Form
+    emailjs.send(
+      'YOUR_SERVICE_ID', // Replace with your Service ID from EmailJS
+      'YOUR_TEMPLATE_ID_COLLEGE', // Replace with your College Template ID from EmailJS
+      {
+        college_name: collegeForm.collegeName,
+        contact_person: collegeForm.contactPerson,
+        college_email: collegeForm.email,
+        college_phone: collegeForm.phone,
+        college_message: collegeForm.message,
+      },
+      'YOUR_PUBLIC_KEY' // Replace with your Public Key from EmailJS
+    )
+    .then((result) => {
+        console.log(result.text);
+        toast({
+          title: "Collaboration Request Sent!",
+          description: "We'll get back to you within 48 hours.",
+        });
+        setCollegeForm({ // Clear form only on success
+          collegeName: "",
+          contactPerson: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+    }, (error) => {
+        console.log(error.text);
+        toast({
+          title: "Error Sending Request",
+          description: "Please try again later.",
+          variant: "destructive",
+        });
     });
   };
 
   const handleSpeakerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Speaker Application Submitted!",
-      description: "Our team will review and contact you soon.",
-    });
-    setSpeakerForm({
-      name: "",
-      email: "",
-      expertise: "",
-      experience: "",
-      topics: "",
+
+    // EmailJS integration for Speaker Form
+    emailjs.send(
+        'YOUR_SERVICE_ID', // Replace with your Service ID from EmailJS
+        'YOUR_TEMPLATE_ID_SPEAKER', // Replace with your Speaker Template ID from EmailJS
+        {
+            speaker_name: speakerForm.name,
+            speaker_email: speakerForm.email,
+            speaker_expertise: speakerForm.expertise,
+            speaker_experience: speakerForm.experience,
+            speaker_topics: speakerForm.topics,
+        },
+        'YOUR_PUBLIC_KEY' // Replace with your Public Key from EmailJS
+    )
+    .then((result) => {
+        console.log(result.text);
+        toast({
+            title: "Speaker Application Submitted!",
+            description: "Our team will review and contact you soon.",
+        });
+        setSpeakerForm({ // Clear form only on success
+            name: "",
+            email: "",
+            expertise: "",
+            experience: "",
+            topics: "",
+        });
+    }, (error) => {
+        console.log(error.text);
+        toast({
+            title: "Error Submitting Application",
+            description: "Please try again later.",
+            variant: "destructive",
+        });
     });
   };
 
@@ -88,7 +137,7 @@ const OutreachSection = () => {
               </div>
               <h3 className="text-2xl font-space font-semibold">College Collaboration</h3>
             </div>
-            
+
             <p className="text-muted-foreground mb-6">
               Bring Next Bench to your campus. We organize workshops, hackathons, and tech talks.
             </p>
@@ -167,7 +216,7 @@ const OutreachSection = () => {
               </div>
               <h3 className="text-2xl font-space font-semibold">Call for Speakers</h3>
             </div>
-            
+
             <p className="text-muted-foreground mb-6">
               Share your knowledge and inspire the next generation of innovators.
             </p>
