@@ -1,73 +1,82 @@
-# Welcome to your Lovable project
+# Next Bench Nexus
 
-## Project info
 
-**URL**: https://lovable.dev/projects/7c5fb9b5-ae67-4574-9eaf-3a9977e2cbd0
+This repository contains the source code for the official website of Next Bench, a dynamic student community dedicated to fostering innovation, collaboration, and professional growth. The platform serves as a central hub for members to learn about the community, discover events, connect with the team, and engage with various initiatives.
 
-## How can I edit this code?
+The website is built with Vite, React, TypeScript, and styled using Tailwind CSS with shadcn/ui components.
 
-There are several ways of editing your application.
+## Key Features
 
-**Use Lovable**
+*   **Interactive Homepage**: A hero section with a video background and clear calls-to-action.
+*   **Community Information**: Detailed sections about the community's vision, mission, and core team members.
+*   **Events Hub**: A tabbed interface to showcase past events, announce upcoming ones, and feature event winners.
+*   **Initiatives Showcase**: Dedicated sections for key programs like the Mentorship Program, Campus Ambassadors, College Outreach, and the Next Bench Agency.
+*   **Interactive Map**: A Leaflet map visualizing the locations of Campus Ambassadors across India.
+*   **Engagement Forms**:
+    *   A "Join Community" modal for new members.
+    *   Forms for colleges to request collaboration and for individuals to apply as speakers, integrated with EmailJS.
+*   **Responsive Design**: A fully responsive layout that provides an optimal experience on all devices, from mobile to desktop.
+*   **Modern UI/UX**: Built with `shadcn/ui` and enhanced with `framer-motion` for smooth animations and transitions.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/7c5fb9b5-ae67-4574-9eaf-3a9977e2cbd0) and start prompting.
+## Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+*   **Frontend**: React, TypeScript
+*   **Build Tool**: Vite
+*   **Styling**: Tailwind CSS, shadcn/ui
+*   **Routing**: React Router
+*   **Animations**: Framer Motion
+*   **Carousels**: Swiper
+*   **Interactive Maps**: Leaflet
+*   **Email Service**: EmailJS
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+To get a local copy up and running, follow these simple steps.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Prerequisites
 
-Follow these steps:
+Ensure you have Node.js and npm installed on your machine.
+*   [Node.js](https://nodejs.org/) (v18 or later recommended)
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Installation & Setup
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/vanshika20006/next-bench-nexus.git
+    ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+2.  **Navigate to the project directory:**
+    ```sh
+    cd next-bench-nexus
+    ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+3.  **Install NPM packages:**
+    ```sh
+    npm install
+    ```
 
-**Edit a file directly in GitHub**
+4.  **Configure EmailJS:**
+    The outreach forms in the application use EmailJS to send emails. You will need to create an EmailJS account and replace the placeholder credentials.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+    *   Navigate to `src/components/sections/OutreachSection.tsx`.
+    *   Find the `handleCollegeSubmit` and `handleSpeakerSubmit` functions.
+    *   Replace `'YOUR_SERVICE_ID'`, `'YOUR_TEMPLATE_ID_COLLEGE'`, `'YOUR_TEMPLATE_ID_SPEAKER'`, and `'YOUR_PUBLIC_KEY'` with your actual credentials from your EmailJS account.
 
-**Use GitHub Codespaces**
+5.  **Start the development server:**
+    ```sh
+    npm run dev
+    ```
+    The application will be available at `http://localhost:8080`.
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project Structure
 
-## What technologies are used for this project?
+The codebase is organized to maintain a clean and scalable structure. Key directories inside `src/` include:
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/7c5fb9b5-ae67-4574-9eaf-3a9977e2cbd0) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*   `pages/`: Contains the main page components of the application (`Index.tsx`, `NotFound.tsx`).
+*   `components/`: Contains all React components, subdivided into:
+    *   `layout/`: Structural components like the `Navbar`.
+    *   `sections/`: Major sections of the landing page (e.g., `HeroSection`, `TeamSection`).
+    *   `ui/`: Reusable, generic UI components sourced from `shadcn/ui` (e.g., `Button`, `Card`, `Dialog`).
+*   `hooks/`: Custom React hooks, such as `use-toast` and `use-mobile`.
+*   `lib/`: Utility functions, including the `cn` function for merging Tailwind classes.
+*   `assets/`: This directory can be created to store static assets like images and fonts if not using a CDN.
