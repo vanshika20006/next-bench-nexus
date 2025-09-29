@@ -96,6 +96,23 @@ const TeamSection = () => {
       bio: "Managing communications and maintaining strong public relations.",
       social: { linkedin: "#", twitter: "#" },
     }
+    ,
+    {
+      id: 9,
+      name: "Archit Nagar",
+      role: "Documention Lead",
+      image: "at.jpg",
+      bio: "Managing communications and maintaining strong public relations.",
+      social: { linkedin: "#", twitter: "#" },
+    },
+    {
+      id: 10,
+      name: "Shreya Nagar",
+      role: "Event Organizer",
+      image: "shreya.jpg",
+      bio: "Managing communications and maintaining strong public relations.",
+      social: { linkedin: "#", twitter: "#" },
+    }
   ];
 
   return (
